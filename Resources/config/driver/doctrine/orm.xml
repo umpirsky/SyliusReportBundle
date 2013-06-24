@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+ This file is part of the Sylius package.
+
+ (c) Paweł Jędrzejewski
+
+ For the full copyright and license information, please view the LICENSE
+ file that was distributed with this source code.
+
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="sylius.model.report.class">Sylius\Bundle\ReportBundle\Entity\Report</parameter>
+        <parameter key="sylius.model.report_data_fetcher.class">Sylius\Bundle\ReportBundle\Entity\DataFetcher</parameter>
+        <parameter key="sylius.model.report_renderer.class">Sylius\Bundle\ReportBundle\Entity\Renderer</parameter>
+
+        <parameter key="sylius.repository.report.class">Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository</parameter>
+        <parameter key="sylius.repository.report_data_fetcher.class">Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository</parameter>
+        <parameter key="sylius.repository.report_renderer.class">Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository</parameter>
+    </parameters>
+
+    <services>
+        <service id="sylius.manager.report" alias="doctrine.orm.entity_manager" />
+        <service id="sylius.repository.report" class="%sylius.repository.report.class%">
+            <argument type="service" id="sylius.manager.report" />
+            <argument type="service">
+                <service
+                    factory-service="sylius.manager.report"
+                    factory-method="getClassMetadata"
+                    class="Doctrine\ORM\Mapping\ClassMetadata"
+                >
+                    <argument>%sylius.model.report.class%</argument>
+                </service>
+            </argument>
+        </service>
+
+        <service id="sylius.manager.report_data_fetcher" alias="doctrine.orm.entity_manager" />
+        <service id="sylius.repository.report_data_fetcher" class="%sylius.repository.report_data_fetcher.class%">
+            <argument type="service" id="sylius.manager.report_data_fetcher" />
+            <argument type="service">
+                <service
+                    factory-service="sylius.manager.report_data_fetcher"
+                    factory-method="getClassMetadata"
+                    class="Doctrine\ORM\Mapping\ClassMetadata"
+                >
+                    <argument>%sylius.model.report_data_fetcher.class%</argument>
+                </service>
+            </argument>
+        </service>
+
+        <service id="sylius.manager.report_renderer" alias="doctrine.orm.entity_manager" />
+        <service id="sylius.repository.report_renderer" class="%sylius.repository.report_renderer.class%">
+            <argument type="service" id="sylius.manager.report_renderer" />
+            <argument type="service">
+                <service
+                    factory-service="sylius.manager.report_renderer"
+                    factory-method="getClassMetadata"
+                    class="Doctrine\ORM\Mapping\ClassMetadata"
+                >
+                    <argument>%sylius.model.report_renderer.class%</argument>
+                </service>
+            </argument>
+        </service>
+    </services>
+
+</container>

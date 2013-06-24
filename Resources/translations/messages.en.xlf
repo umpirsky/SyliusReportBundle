@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2013-07-01T09:03:00Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="201cea75e388e6fec79f1c0fa9d32928da7e9321" resname="sylius.form.data_fetcher.type">
+        <jms:reference-file line="36">Form/Type/DataFetcherType.php</jms:reference-file>
+        <source>sylius.form.data_fetcher.type</source>
+        <target>Data fetcher</target>
+      </trans-unit>
+      <trans-unit id="932983c1aa69ad933246490bbd346594122530a4" resname="sylius.form.renderer.console_configuration.layout">
+        <jms:reference-file line="26">Type/Renderer/ConsoleConfigurationType.php</jms:reference-file>
+        <source>sylius.form.renderer.console_configuration.layout</source>
+        <target>Layout</target>
+      </trans-unit>
+      <trans-unit id="5a8830abc62375a0f841e5b3d41d76e6140d8efb" resname="sylius.form.renderer.console_configuration.layout.borderless">
+        <jms:reference-file line="29">Type/Renderer/ConsoleConfigurationType.php</jms:reference-file>
+        <source>sylius.form.renderer.console_configuration.layout.borderless</source>
+        <target>Borderless</target>
+      </trans-unit>
+      <trans-unit id="6ba6b75bf7fb2c4c2c14013f79285fc5da834632" resname="sylius.form.renderer.console_configuration.layout.default">
+        <jms:reference-file line="28">Type/Renderer/ConsoleConfigurationType.php</jms:reference-file>
+        <source>sylius.form.renderer.console_configuration.layout.default</source>
+        <target>Default</target>
+      </trans-unit>
+      <trans-unit id="040baba74cf324d7f4c5c6cef7d02b8c11be2bd2" resname="sylius.form.renderer.csv_configuration.delimiter">
+        <jms:reference-file line="26">Type/Renderer/CsvConfigurationType.php</jms:reference-file>
+        <source>sylius.form.renderer.csv_configuration.delimiter</source>
+        <target>Delimiter</target>
+      </trans-unit>
+      <trans-unit id="1457dc1df6e429db95db8ef6180e8ae3c3bb2ad6" resname="sylius.form.renderer.csv_configuration.enclosure">
+        <jms:reference-file line="32">Type/Renderer/CsvConfigurationType.php</jms:reference-file>
+        <source>sylius.form.renderer.csv_configuration.enclosure</source>
+        <target>Enclosure</target>
+      </trans-unit>
+      <trans-unit id="523a00504a3877aaef5fa49d0b9f4bde6e08d652" resname="sylius.form.renderer.type">
+        <jms:reference-file line="36">Form/Type/RendererType.php</jms:reference-file>
+        <source>sylius.form.renderer.type</source>
+        <target>Renderer</target>
+      </trans-unit>
+      <trans-unit id="460beeb8b71d8c53269677086935d8ec28e10e98" resname="sylius.form.report.fetcher">
+        <jms:reference-file line="42">Form/Type/ReportType.php</jms:reference-file>
+        <source>sylius.form.report.fetcher</source>
+        <target>Data fetcher</target>
+      </trans-unit>
+      <trans-unit id="087f1e163d20f479e2d1a6f285dde0c06ba37dcd" resname="sylius.form.report.name">
+        <jms:reference-file line="39">Form/Type/ReportType.php</jms:reference-file>
+        <source>sylius.form.report.name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="6f849665d9dbdcd12ea8f0a386d71fec1566f245" resname="sylius.form.report.renderer">
+        <jms:reference-file line="45">Form/Type/ReportType.php</jms:reference-file>
+        <source>sylius.form.report.renderer</source>
+        <target>Renderer</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
