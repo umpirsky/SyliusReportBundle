@@ -29,6 +29,9 @@
         "symfony/form":     "~2.3",
         "twig/twig":        "*"
     },
+    "suggest": {
+        "athari/yalinqo": "*"
+    },
     "config": {
         "bin-dir": "bin"
     },

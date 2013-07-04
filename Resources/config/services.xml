@@ -19,6 +19,8 @@
     <parameters>
         <parameter key="sylius.report.class">Sylius\Bundle\ReportBundle\Report\Report</parameter>
 
+        <parameter key="sylius.report_data_fetcher.orm.class">Sylius\Bundle\ReportBundle\DataFetcher\OrmDataFetcher</parameter>
+
         <parameter key="sylius.report_renderer.console.class">Sylius\Bundle\ReportBundle\Renderer\ConsoleRenderer</parameter>
         <parameter key="sylius.report_renderer.csv.class">Sylius\Bundle\ReportBundle\Renderer\CsvRenderer</parameter>
 
@@ -26,6 +28,7 @@
         <parameter key="sylius.form.type.report_data_fetcher.class">Sylius\Bundle\ReportBundle\Form\Type\DataFetcherType</parameter>
         <parameter key="sylius.form.type.report_renderer.class">Sylius\Bundle\ReportBundle\Form\Type\RendererType</parameter>
         <parameter key="sylius.form.type.report_data_fetcher_choice.class">Sylius\Bundle\ReportBundle\Form\Type\DataFetcherChoiceType</parameter>
+        <parameter key="sylius.form.type.report_data_fetcher.orm.class">Sylius\Bundle\ReportBundle\Form\Type\DataFetcher\OrmConfigurationType</parameter>
         <parameter key="sylius.form.type.report_renderer_choice.class">Sylius\Bundle\ReportBundle\Form\Type\RendererChoiceType</parameter>
         <parameter key="sylius.form.type.report_renderer.console_configuration.class">Sylius\Bundle\ReportBundle\Form\Type\Renderer\ConsoleConfigurationType</parameter>
         <parameter key="sylius.form.type.report_renderer.csv_configuration.class">Sylius\Bundle\ReportBundle\Form\Type\Renderer\CsvConfigurationType</parameter>
@@ -89,6 +92,9 @@
         <service id="sylius.form.type.report_data_fetcher_choice" class="%sylius.form.type.report_data_fetcher_choice.class%">
             <argument>%sylius.report_data_fetchers%</argument>
             <tag name="form.type" alias="sylius_report_data_fetcher_choice" />
+        </service>
+        <service id="sylius.form.type.report_data_fetcher.orm" class="%sylius.form.type.report_data_fetcher.orm.class%">
+            <tag name="form.type" alias="sylius_report_data_fetcher_orm_configuration" />
         </service>
         <service id="sylius.form.type.report_renderer_choice" class="%sylius.form.type.report_renderer_choice.class%">
             <argument>%sylius.report_renderers%</argument>
