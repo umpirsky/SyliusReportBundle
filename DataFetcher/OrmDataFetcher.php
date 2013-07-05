@@ -12,16 +12,19 @@
 namespace Sylius\Bundle\ReportBundle\DataFetcher;
 
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\PropertyAccess\PropertyAccess;
 use Sylius\Bundle\ResourceBundle\Model\TimestampableInterface;
-use InvalidArgumentException;
 use YaLinqo\Enumerable;
+use InvalidArgumentException;
 
 class OrmDataFetcher implements DataFetcherInterface
 {
+    protected $configurationFormType;
     protected $repository;
 
-    public function __construct(EntityRepository $repository)
+    public function __construct($configurationFormType, EntityRepository $repository)
     {
+        $this->configurationFormType = $configurationFormType;
         $this->repository = $repository;
     }
 
@@ -35,7 +38,12 @@ class OrmDataFetcher implements DataFetcherInterface
 
                 return $item->getCreatedAt()->format($configuration['group']);
             }, null, function($items) use ($configuration) {
-                return array($items[0]->getCreatedAt()->format($configuration['group']), Enumerable::from($items)->count());
+                return array(
+                    $items[0]->getCreatedAt()->format($configuration['group']),
+                    Enumerable::from($items)->sum(function($item) use ($configuration) {
+                        return PropertyAccess::getPropertyAccessor()->getValue($item, $configuration['property']);
+                    })
+                );
             })
             ->toValues()
             ->toArray()
@@ -44,7 +52,7 @@ class OrmDataFetcher implements DataFetcherInterface
 
     public function getConfigurationFormType()
     {
-        return 'sylius_report_data_fetcher_orm_configuration';
+        return $this->configurationFormType;
     }
 
     protected function findAll()
